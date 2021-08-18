@@ -9,5 +9,5 @@ services:
     volumes:
       - /home/deploy/url-shortener:/code
     working_dir: /code
-    command: node index.js
+    command: node opt/index.js
     restart: always
