@@ -5,7 +5,7 @@ const app = express();
 const urls = new Database('urls.db');
 
 app.get('/:id', async (req, res, next) => {
-  if (req.params.id == 'script.js'){
+  if (req.params.id == 'script.js' || req.params.id === "helloworld"){
     next()
     return;
   }
