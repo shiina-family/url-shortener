@@ -2,10 +2,7 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "a url shortener",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shiina-family/url-shortener.git"
@@ -20,6 +17,13 @@
   },
   "homepage": "https://github.com/shiina-family/url-shortener#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.6.1",
+    "@types/sqlite3": "^3.1.7",
+    "typescript": "^4.3.5"
   }
 }
