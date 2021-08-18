@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "a url shortener",
   "main": "index.ts",
+  "scripts": {
+    "start": "node opt/index.js",
+    "compile": "tsc -p ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shiina-family/url-shortener.git"

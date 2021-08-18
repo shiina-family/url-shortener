@@ -22,7 +22,7 @@ jobs:
         run: npm i
 
       - name: Run compile task
-        run: npx tsc
+        run: npm run compile
 
       - name: SSH Deploy
         uses: easingthemes/ssh-deploy@main

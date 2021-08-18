@@ -5,9 +5,9 @@ services:
     container_name: url-shortener
     image: node
     ports:
-      - '31857:80'
+      - '31857:31857'
     volumes:
       - /home/deploy/url-shortener:/code
     working_dir: /code
-    command: node opt/index.js
+    command: npm start
     restart: always
