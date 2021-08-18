@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  url-shortener:
+    container_name: url-shortener
+    image: node
+    ports:
+      - '31857:80'
+    volumes:
+      - /home/deploy/url-shortener:/code
+    working_dir: /code
+    command: node index.js
+    restart: always
