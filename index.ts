@@ -14,6 +14,10 @@ app.get('/:id', async (req, res, next) => {
   return res.redirect(to);
 });
 
+app.get("/helloworld", async(_, res) => {
+  res.status(200).send('Hello!World')
+})
+
 app.post('/register', async (req, res) => {
   const slug = req.query.slug as string;
   const target = req.query.target as string;
