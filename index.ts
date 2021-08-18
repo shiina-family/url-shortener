@@ -4,7 +4,11 @@ import {Database} from './database';
 const app = express();
 const urls = new Database('urls.db');
 
-app.get('/:id', async (req, res) => {
+app.get('/:id', async (req, res, next) => {
+  if (req.params.id === 'script.js') {
+    next();
+    return;
+  }
   const url = await urls.fetch(req.params.id);
   const to = url ? url.target_url : 'https://google.com';
   return res.redirect(to);
