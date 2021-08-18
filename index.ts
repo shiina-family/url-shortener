@@ -5,6 +5,7 @@ const app = express();
 const urls = new Database('urls.db');
 
 app.get('/:id', async (req, res) => {
+  if (req.params.id == 'script.js') return;
   const url = await urls.fetch(req.params.id);
   const to = url ? url.target_url : 'https://google.com';
   return res.redirect(to);
