@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "node opt/index.js",
-    "compile": "tsc -p ."
+    "compile": "tsc -p . && tsc -p ./static-ts"
   },
   "repository": {
     "type": "git",
