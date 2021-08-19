@@ -40,5 +40,4 @@ jobs:
           key: ${{ secrets.DEPLOY_SERVER_PRIVATE_KEY }}
           script: |
             cd /home/${{ secrets.DEPLOY_SERVER_USER }}/url-shortener
-            docker-compose down -v
-            docker-compose up -d
+            docker-compose up -d --force-recreate
