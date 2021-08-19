@@ -1,7 +1,7 @@
 const postUrl = () => {
   const callback = async() => {
-    const endPoint = "https://u.shiina.family"
-    // const endPoint = "https://8083.shiina.family"
+    // const endPoint = "https://u.shiina.family"
+    const endPoint = "https://8083.shiina.family"
     const data = new FormData(document.getElementById("url-shortener-form") as HTMLFormElement);
     const slug = data.get('shorten_slug') as string;
     const target = data.get('target_url') as string;
