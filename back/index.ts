@@ -1,11 +1,12 @@
 import express from 'express';
 import {Database} from './database';
 import {join} from 'path';
+import dotenv from 'dotenv';
 
+dotenv.config({path: join(__dirname, '../.env')});
+
+const urls = new Database(join('back', 'urls.db'));
 const app = express();
-
-const databasePath = join('back', 'urls.db');
-const urls = new Database(databasePath);
 
 app.use(express.static('front/static', {fallthrough: true}));
 app.get('/:id', async (req, res) => {
@@ -27,4 +28,4 @@ app.post('/register', async (req, res) => {
   res.send('Registered!');
 });
 
-app.listen(8083);
+app.listen(process.env.PORT);

@@ -5,3 +5,4 @@
 /opt/
 /back/urls.db
 /front/static/script.js*
+/.env
