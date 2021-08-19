@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/shiina-family/url-shortener#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "sqlite3": "^5.0.2"
   },
