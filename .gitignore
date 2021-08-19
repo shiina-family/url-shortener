@@ -1,6 +1,7 @@
 /node_modules/
-urls.db
+
+/.idea/
+
 /opt/
-/static/script.js
-/static/script.js.map
-.idea/
+/back/urls.db
+/front/static/script.js*

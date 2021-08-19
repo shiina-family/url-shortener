@@ -2,10 +2,10 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "a url shortener",
-  "main": "index.ts",
+  "main": "back/index.ts",
   "scripts": {
     "start": "node opt/index.js",
-    "compile": "tsc -p . && tsc -p ./static-ts"
+    "compile": "tsc -p back && tsc -p front/static-ts"
   },
   "repository": {
     "type": "git",

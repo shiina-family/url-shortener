@@ -1,17 +1,14 @@
 import express from 'express';
 import {Database} from './database';
+import {join} from 'path';
 
 const app = express();
-const urls = new Database('urls.db');
-// const statics = nantara __dirname kantara
 
-app.get('/:id', async (req, res, next) => {
-  if (req.params.id === 'script.js'
-    || req.params.id === 'normalize.css'
-    || req.params.id === 'style.css') {
-    next();
-    return;
-  }
+const databasePath = join('back', 'urls.db');
+const urls = new Database(databasePath);
+
+app.use(express.static('front/static', {fallthrough: true}));
+app.get('/:id', async (req, res) => {
   const url = await urls.fetch(req.params.id);
   const to = url ? url.target_url : 'https://google.com';
   return res.redirect(to);
@@ -30,5 +27,4 @@ app.post('/register', async (req, res) => {
   res.send('Registered!');
 });
 
-app.use(express.static('static'));
-app.listen(31857);
+app.listen(8083);
