@@ -33,4 +33,9 @@ export class Database {
                       VALUES (?, ?)`;
     this.db.run(sql, [shorten_slug, target_url]);
   }
+
+  async isExistsSlug(slug: string) {
+    const exists = await this.fetch(slug);
+    return Boolean(exists)
+  }
 }
