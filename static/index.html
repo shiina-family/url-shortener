@@ -4,21 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>url shortener by shiina</title>
+  <link rel="stylesheet" href="./normalize.css">
+  <link rel="stylesheet" href="./style.css">
   <script src="./script.js"></script>
 </head>
 <body>
-<div>
+<div class="wrapper">
   <main>
 
-    <h1>URL Shortener by Shiina</h1>
+    <h1 class="title">URL Shortener</h1>
 
     <form id="url-shortener-form">
-      <input type="button" onclick="postUrl()">
-      <input type="text" name="shorten_slug" value="">
-      <input type="text" name="target_url" value="">
+
+      <div>
+      <label for="input-target">Paste the URL to be shortened</label>
+      <input id="input-target" type="text" name="target_url" placeholder="https://" value="https://">
+      </div>
+
+      <div>
+      <label for="input-slug">Enter the slug</label>
+      <input id="input-slug" type="text" name="shorten_slug" value="">
+      </div>
+
+      <div>
+      <input class="button-post" type="button" onclick="postUrl()" value="Register">
+      </div>
+
     </form>
 
   </main>
+  <footer>
+    <small>(c) tenzyu masuda</small>
+  </footer>
 </div>
 </body>
 </html>
