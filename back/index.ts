@@ -27,7 +27,7 @@ app.post('/register', async (req, res) => {
   }
 
   if (await urls.isExistsSlug(slug)) {
-    return res.status(400).send('That slug already exists.');
+    return res.status(400).send('That slug is already exists.');
   }
 
   urls.post(slug, target);
