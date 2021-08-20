@@ -28,6 +28,17 @@ export class Database {
     });
   }
 
+  async fetchAll() {
+    const sql = `SELECT shorten_slug, target_url
+                   FROM redirectsData
+                  ORDER BY shorten_slug`;
+    return await new Promise<any>((resolve, reject) => {
+      this.db.all(sql, [], (err, rows) => {
+        resolve(rows);
+      });
+    });
+  }
+
   post(shorten_slug: string, target_url: string) {
     const sql = `INSERT INTO redirectsData
                       VALUES (?, ?)`;
@@ -36,6 +47,6 @@ export class Database {
 
   async isExistsSlug(slug: string) {
     const exists = await this.fetch(slug);
-    return Boolean(exists)
+    return Boolean(exists);
   }
 }

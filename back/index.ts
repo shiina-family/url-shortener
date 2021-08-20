@@ -10,11 +10,17 @@ const urls = new Database(join('back', 'urls.db'));
 const app = express();
 
 app.use(express.static('front/static', {fallthrough: true}));
+
+app.get('/admin', async (req, res) => {
+  return res.send(await urls.fetchAll())
+});
+
 app.get('/:id', async (req, res) => {
   const url = await urls.fetch(req.params.id);
   const to = url ? url.target_url : 'https://google.com';
   return res.redirect(to);
 });
+
 
 app.post('/register', async (req, res) => {
   const slug = req.query.slug as string;
