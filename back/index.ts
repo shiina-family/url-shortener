@@ -1,7 +1,8 @@
-import express from 'express';
-import {Database} from './database';
-import {join} from 'path';
 import dotenv from 'dotenv';
+import express from 'express';
+import {join} from 'path';
+import {URL} from 'url';
+import {Database} from './database';
 
 dotenv.config({path: join(__dirname, '../.env')});
 
@@ -18,14 +19,19 @@ app.get('/:id', async (req, res) => {
 app.post('/register', async (req, res) => {
   const slug = req.query.slug as string;
   const target = req.query.target as string;
-  if (await urls.isExistsSlug(slug)) {
-    res.status(400);
-    res.send('That slug already exists.');
-    return;
+
+  try {
+    new URL(target);
+  } catch (error) {
+    return res.status(400).send(`${error.input} is not a valid url`);
   }
+
+  if (await urls.isExistsSlug(slug)) {
+    return res.status(400).send('That slug already exists.');
+  }
+
   urls.post(slug, target);
-  res.status(201);
-  res.send('Registered!');
+  res.status(201).send('Registered!');
 });
 
 app.listen(process.env.PORT);
