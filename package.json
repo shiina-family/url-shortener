@@ -4,6 +4,7 @@
   "description": "a url shortener",
   "main": "back/index.ts",
   "scripts": {
+    "run": "npm run compile && npm run start",
     "start": "node opt/index.js",
     "compile": "tsc -p back && tsc -p front/static-ts"
   },
