@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
@@ -8,34 +9,30 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
 </head>
+
 <body>
-<div class="wrapper">
-  <main>
+  <div class="wrapper">
+    <main>
+      <h1 class="title">URL Shortener</h1>
 
-    <h1 class="title">URL Shortener</h1>
-
-    <form id="url-shortener-form">
-
-      <div>
-      <label for="input-target">Paste the URL to be shortened</label>
-      <input id="input-target" type="text" name="target_url" placeholder="https://" value="">
-      </div>
-
-      <div>
-      <label for="input-slug">Enter the slug</label>
-      <input id="input-slug" type="text" name="shorten_slug" value="">
-      </div>
-
-      <div>
-      <input class="button-post" type="button" onclick="postUrl()" value="Register">
-      </div>
-
-    </form>
-
-  </main>
-  <footer>
-    <small>(c) tenzyu masuda</small>
-  </footer>
-</div>
+      <form id="url-shortener-form" onsubmit="postUrl(); return false;">
+        <div>
+          <label for="input-target">Paste the URL to be shortened</label>
+          <input id="input-target" type="url" name="target_url" value="" required>
+        </div>
+        <div>
+          <label for="input-slug">Enter the slug</label>
+          <input id="input-slug" type="text" name="shorten_slug" value="" required>
+        </div>
+        <div>
+          <input class="button-post" type="submit" value="Register">
+        </div>
+      </form>
+    </main>
+    <footer>
+      <small>(c) tenzyu masuda</small>
+    </footer>
+  </div>
 </body>
+
 </html>
