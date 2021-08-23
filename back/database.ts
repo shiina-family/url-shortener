@@ -33,7 +33,7 @@ export class Database {
                    FROM redirectsData
                   ORDER BY shorten_slug`;
     return await new Promise<any>((resolve, reject) => {
-      this.db.all(sql, [], (err, rows) => {
+      this.db.all(sql, [], (_err, rows) => {
         resolve(rows);
       });
     });
