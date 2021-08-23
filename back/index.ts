@@ -26,6 +26,9 @@ app.post('/register', async (req, res) => {
   const slug = req.query.slug as string;
   const target = req.query.target as string;
 
+  if (slug === '') {
+    return res.status(400).send('ERROR: slug is empty.');
+  }
   try {
     new URL(target);
   } catch (error) {

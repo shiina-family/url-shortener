@@ -5,11 +5,6 @@ const postUrl = async () => {
   const params = {'slug': slug, 'target': target}
   const qs = new URLSearchParams(params);
 
-  if (slug==='') {
-    alert('ERROR: slug is empty!')
-    return;
-  }
-
   fetch(`/register?${qs}`, {method: "POST"})
     .then(async response => {
       const responseText = await response.text();
